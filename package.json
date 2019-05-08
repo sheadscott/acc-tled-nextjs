@@ -1,0 +1,35 @@
+{
+  "name": "with-styled-components",
+  "version": "1.0.0",
+  "scripts": {
+    "rms3": "aws s3 rb s3://austincc.xyz.serverless --force",
+    "dev": "STAGE=dev next -p 5555",
+    "build": "next build",
+    "start": "NODE_ENV=production next start",
+    "deploy": "STAGE=production sls deploy"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "html-react-parser": "^0.7.0",
+    "iw-react-dropdown": "^1.0.2",
+    "next": "^8.1.0",
+    "object-fit-images": "^3.2.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "serverless-domain-manager": "^3.2.1",
+    "serverless-nextjs-plugin": "https://github.com/InstructionalWeb/serverless-nextjs-plugin",
+    "styled-components": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^6.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "next-compose-plugins": "^2.1.1",
+    "next-optimized-images": "^2.4.1",
+    "responsive-loader": "^1.2.0",
+    "serverless-offline": "^4.9.4",
+    "sharp": "^0.22.1"
+  },
+  "license": "ISC"
+}
