@@ -22,9 +22,18 @@ class MyApp extends App {
           response.data.items
       );
 
+    const footerData = await Axios.get(
+      `https://instruction.austincc.edu/tled/wp-json/wp-api-menus/v2/menus/5`
+    )
+      .catch(function(error) {
+        // handle error
+        console.error('Footer', error);
+      })
+      .then(response => response.data.items);
+
     // this exposes the query to the user
     pageProps.query = ctx.query;
-    return { pageProps, navData };
+    return { pageProps, navData, footerData };
   }
 
   render() {
@@ -39,7 +48,7 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Page navData={this.props.navData}>
+        <Page navData={this.props.navData} footerData={this.props.footerData}>
           <Component {...pageProps} />
         </Page>
       </Container>

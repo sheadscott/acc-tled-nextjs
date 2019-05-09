@@ -5,6 +5,7 @@ import Meta from './Meta';
 import Header from './Header';
 import GlobalStyle from '../styles/GlobalStyle';
 import theme from '../theme';
+import Footer from './Footer/Footer';
 
 class Page extends Component {
   render() {
@@ -15,6 +16,7 @@ class Page extends Component {
           <GlobalStyle />
           <Header navData={this.props.navData} />
           <StyledMain>{this.props.children}</StyledMain>
+          <Footer footerData={this.props.footerData} />
         </StyledPage>
       </ThemeProvider>
     );
