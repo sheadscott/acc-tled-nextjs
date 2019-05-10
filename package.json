@@ -11,14 +11,12 @@
   "dependencies": {
     "@rebass/grid": "^6.0.0",
     "axios": "^0.18.0",
-    "fetch-suspense": "^1.1.0",
     "html-react-parser": "^0.7.0",
     "iw-react-dropdown": "^1.0.2",
     "next": "^8.1.0",
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
     "serverless-domain-manager": "^3.2.1",
     "serverless-nextjs-plugin": "https://github.com/InstructionalWeb/serverless-nextjs-plugin",
     "styled-components": "^4.0.0"
