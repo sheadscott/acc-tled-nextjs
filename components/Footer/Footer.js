@@ -6,7 +6,7 @@ import { Container, Row, Column } from '../Grid/Grid';
 
 const Footer = props => {
   const renderChildren = child => {
-    // Internal links using React Router
+    // Internal links using Next Link
     if (child.type === 'post_type') {
       const localURL = child.url.replace(
         'https://instruction.austincc.edu/tled',
@@ -14,14 +14,20 @@ const Footer = props => {
       );
       return (
         <li key={child.id}>
-          <Link href={localURL}>{child.title}</Link>
+          <Link href={localURL}>
+            <a>
+              <Parser>{child.title}</Parser>
+            </a>
+          </Link>
         </li>
       );
     }
-    // external links
+    // External links
     return (
       <li key={child.id}>
-        <a href={child.url}>{child.title}</a>
+        <a href={child.url}>
+          <Parser>{child.title}</Parser>
+        </a>
       </li>
     );
   };
@@ -34,17 +40,23 @@ const Footer = props => {
               <ul key={`${item.id}ul`}>
                 {item.url !== '#' && (
                   <li className="stand-alone">
-                    <a href={item.url}>{item.title}</a>
+                    <a href={item.url}>
+                      <Parser>{item.title}</Parser>
+                    </a>
                   </li>
                 )}
-                {item.url === '#' && <h4>{item.title}</h4>}
+                {item.url === '#' && (
+                  <h4>
+                    <Parser>{item.title}</Parser>
+                  </h4>
+                )}
                 {item.children && item.children.map(renderChildren)}
               </ul>
             ))}
           </WpLinks>
 
           <Contact width={[1, 1, 1 / 4]} pl={[0, 0, '2rem']}>
-            <img src={require('../../images/tledLogo.svg')} alt="Home" />
+            <img src={require('../../images/tledLogo.svg')} alt="TLED Logo" />
 
             <div className="vcard" style={{ marginLeft: '10px' }}>
               <div className="email">
@@ -81,6 +93,7 @@ const Wrapper = styled.footer`
 `;
 
 const WpLinks = styled(Column)`
+  margin-top: 2em;
   @media (min-width: 400px) {
     columns: 2;
   }
@@ -91,8 +104,9 @@ const WpLinks = styled(Column)`
   h4 {
     font-size: 16px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     color: rgb(244, 239, 172);
+    margin-top: 0;
   }
 
   ul {
@@ -101,11 +115,12 @@ const WpLinks = styled(Column)`
     break-inside: avoid;
     font-size: 14px;
     font-weight: 400;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5em 0;
     padding: 0;
 
     li {
       padding: 3px 0;
+      margin: 0 0 0.3em 0;
       a:hover {
         text-decoration: underline;
         color: white;
@@ -130,9 +145,11 @@ const WpLinks = styled(Column)`
 const Contact = styled(Column)`
   .vcard {
     font-size: 12px;
+    text-align: center;
 
     .email {
-      margin-bottom: 12px;
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
 
       a:hover,
       a:visited,
@@ -144,8 +161,9 @@ const Contact = styled(Column)`
     }
   }
 
-  svg {
+  img {
     max-width: 240px;
     margin-bottom: 0.8rem;
+    margin-top: 1.5em;
   }
 `;
