@@ -165,5 +165,7 @@ const Contact = styled(Column)`
     max-width: 240px;
     margin-bottom: 0.8rem;
     margin-top: 1.5em;
+    margin: auto;
+    display: block;
   }
 `;
