@@ -145,8 +145,7 @@ const WpLinks = styled(Column)`
 const Contact = styled(Column)`
   .vcard {
     font-size: 12px;
-    text-align: center;
-
+    line-height: 20px;
     .email {
       margin-top: 1.5em;
       margin-bottom: 1.5em;
@@ -165,7 +164,5 @@ const Contact = styled(Column)`
     max-width: 240px;
     margin-bottom: 0.8rem;
     margin-top: 1.5em;
-    margin: auto;
-    display: block;
   }
 `;
