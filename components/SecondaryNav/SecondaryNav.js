@@ -40,22 +40,10 @@ export default class SecondaryNav extends Component {
                 // menu item has children
                 if (child.children) {
                   return (
-                    <ul
-                      key={child.id}
-                      style={{
-                        listStyle: 'none',
-                        margin: '0 0 3rem',
-                        breakInside: 'avoid',
-                      }}
-                    >
+                    <ul key={child.id} className="parentList">
                       <li>
                         <ListHeading>{child.title}</ListHeading>
-                        <ul
-                          style={{
-                            listStyle: 'none',
-                            margin: 0,
-                          }}
-                        >
+                        <ul className="childList">
                           {child.children.map(childLink => (
                             <li key={childLink.id} className="iw-dropdown__subItem">
                               <Link href={childLink.url.replace(`${siteUrl}/`, '/')}>
@@ -142,6 +130,18 @@ const DropdownMenu = styled(Dropdown)`
     flex-direction: row;
     padding: 0;
     justify-content: center;
+  }
+
+  ul.parentList {
+    list-style: none;
+    margin: 0 0 3rem;
+    break-inside: avoid;
+  }
+
+  ul.childList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .iw-dropdown__menuItem {
