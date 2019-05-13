@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import Link from 'next/link';
+import styled from 'styled-components';
 import Meta from './Meta';
-import Header from './Header';
 import GlobalStyle from '../styles/GlobalStyle';
-import theme from '../theme';
 
 class Page extends Component {
   render() {
+    const { children } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <StyledPage>
-          <Meta />
-          <GlobalStyle />
-          <Header navData={this.props.navData} />
-          <StyledMain>{this.props.children}</StyledMain>
-        </StyledPage>
-      </ThemeProvider>
+      <StyledPage>
+        <Meta />
+        <GlobalStyle />
+        <StyledMain>{children}</StyledMain>
+      </StyledPage>
     );
   }
 }

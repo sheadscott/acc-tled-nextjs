@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-    font-size: 10px;
+    font-size: 16px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -24,12 +24,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: ${props => props.theme.bodyFont};
-    font-size: 1.6rem;
+    font-size: 1rem;
     color: ${props => props.theme.black};
 
     h1 {
         font-family: ${props => props.theme.displayFont};
-        font-size: 5.5rem;
+        font-size: 2.5rem;
         text-align: center;
     }
 
