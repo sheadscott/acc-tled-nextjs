@@ -12,7 +12,7 @@ export default class TitleBar extends Component {
           </a>
 
           <SiteTitle>
-            <TLED href="/">TLED</TLED>
+            <Link href="/"><TLED>TLED</TLED></Link>
           </SiteTitle>
         </SiteIdentity>
 
@@ -132,7 +132,7 @@ const SiteTitle = styled.div`
   margin-left: 0.25rem;
 `;
 
-const TLED = styled(Link)`
+const TLED = styled.a`
   color: white;
   text-decoration: none;
 
