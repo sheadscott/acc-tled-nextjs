@@ -6,6 +6,7 @@ import Page from '../components/Page';
 import Header from '../components/Header';
 import TitleBar from '../components/TitleBar/TitleBar';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
+import Footer from '../components/Footer/Footer';
 import { endpoint } from '../config';
 import theme from '../theme';
 
@@ -36,9 +37,18 @@ class MyApp extends App {
       })
       .then(response => response.data.items);
 
+    const footerData = await Axios.get(
+      `https://instruction.austincc.edu/tled/wp-json/wp-api-menus/v2/menus/5`
+    )
+      .catch(function(error) {
+        // handle error
+        console.error('Footer', error);
+      })
+      .then(response => response.data.items);
+
     // this exposes the query to the user
     pageProps.query = ctx.query;
-    return { pageProps, navData, topNavData };
+    return { pageProps, navData, topNavData, footerData };
   }
 
   toggleSearch = event => {
@@ -80,7 +90,7 @@ class MyApp extends App {
   };
 
   render() {
-    const { Component, pageProps, navData, topNavData } = this.props;
+    const { Component, pageProps, navData, topNavData, footerData } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
@@ -97,6 +107,7 @@ class MyApp extends App {
           <Page>
             <Component {...pageProps} />
           </Page>
+          <Footer footerData={footerData} />
         </Container>
       </ThemeProvider>
     );
