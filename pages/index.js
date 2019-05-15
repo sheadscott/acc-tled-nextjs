@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Error from 'next/error';
+import Link from 'next/link';
 import { endpoint } from '../config';
 import Parser from '../components/Parser/Parser';
 
@@ -8,6 +9,9 @@ const Index = ({ pageContent, pageTitle }) => {
   if (!pageContent) return <Error status={404} />;
   return (
     <div>
+      <Link href="/wp-test-page">
+        <a>Wordpress Test Page</a>
+      </Link>
       <h1>{pageTitle}</h1>
       <div>
         <Parser>{pageContent}</Parser>

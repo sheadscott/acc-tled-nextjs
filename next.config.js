@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
+const withCSS = require('@zeit/next-css'); // Need for flickity
 
 const isDev = process.env.STAGE === 'dev';
 const target = isDev ? 'server' : 'serverless';
@@ -23,6 +24,7 @@ module.exports = withPlugins(
         },
       },
     ],
+    [withCSS],
   ],
   nextConfig
 );
