@@ -9,6 +9,7 @@ import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import Footer from '../components/Footer/Footer';
 import { endpoint } from '../config';
 import theme from '../theme';
+import HomeSlider from '../components/HomeSlider/HomeSlider';
 
 class MyApp extends App {
   state = {
@@ -85,12 +86,20 @@ class MyApp extends App {
 
   // close all menu items
   cancelSubMenuState = () => {
-    const expandedState = this.state.subMenuState.map((item, index, arr) => false);
+    const expandedState = this.state.subMenuState.map(
+      (item, index, arr) => false
+    );
     this.setState({ subMenuState: expandedState });
   };
 
   render() {
-    const { Component, pageProps, navData, topNavData, footerData } = this.props;
+    const {
+      Component,
+      pageProps,
+      navData,
+      topNavData,
+      footerData,
+    } = this.props;
 
     return (
       <ThemeProvider theme={theme}>

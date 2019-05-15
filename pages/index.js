@@ -1,21 +1,30 @@
 import React from 'react';
 import Axios from 'axios';
 import Error from 'next/error';
+import styled from 'styled-components';
 import { endpoint } from '../config';
 import Parser from '../components/Parser/Parser';
+import HomeSlider from '../components/HomeSlider/HomeSlider';
 
 const Index = ({ pageContent, pageTitle }) => {
   if (!pageContent) return <Error status={404} />;
   return (
-    <div>
-      <h1>{pageTitle}</h1>
-      <div>
-        <Parser>{pageContent}</Parser>
-      </div>
-    </div>
+    <React.Fragment>
+      <HomeSlider />
+      <MainContent>
+        <h1>{pageTitle}</h1>
+        <div>
+          <Parser>{pageContent}</Parser>
+        </div>
+      </MainContent>
+    </React.Fragment>
   );
 };
 
+const MainContent = styled.div`
+  padding-right: 2em;
+  padding-left: 2em;
+`;
 Index.getInitialProps = async ({ res, asPath }) => {
   const pageObject = Axios.get(`${endpoint}wp/v2/pages?slug=home`)
     .catch(function(error) {

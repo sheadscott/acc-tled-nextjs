@@ -25,8 +25,7 @@ const StyledPage = styled.div`
 
 const StyledMain = styled.main`
   margin: 0 auto;
-  padding: 2rem;
-  max-width: ${props => props.theme.maxWidth};
+  max-width: 100%;
   min-height: 100%;
 
   img {

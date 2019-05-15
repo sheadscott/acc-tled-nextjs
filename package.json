@@ -17,6 +17,7 @@
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-responsive-carousel": "^3.1.49",
     "serverless-domain-manager": "^3.2.1",
     "serverless-nextjs-plugin": "https://github.com/InstructionalWeb/serverless-nextjs-plugin",
     "styled-components": "^4.0.0"
