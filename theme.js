@@ -3,7 +3,7 @@ export default {
   bodyFont: `Montserrat, Arial, Helvetica, sans-serif;`,
   maxWidth: '1068px',
   colors: {
-    black: '#000e1a',
+    black: '#2d2d2d',
     white: '#fff',
     primaryBlue: '#133952',
     navy: '#004175',

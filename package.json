@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@rebass/grid": "^6.0.0",
+    "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
     "html-react-parser": "^0.7.0",
     "iw-react-dropdown": "^1.0.2",
+    "iw-react-elements": "^1.0.8",
     "next": "^8.1.0",
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
