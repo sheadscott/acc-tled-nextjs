@@ -182,15 +182,16 @@ if (!Array.prototype.last) {
 }
 
 WPPage.getInitialProps = async ({ asPath, res }) => {
-  const slug = asPath
-    .split('?')[0]
-    .replace(/\/$/, '')
-    .split('/')
-    .last();
+  // const slug = asPath
+  //   .split('?')[0]
+  //   .replace(/\/$/, '')
+  //   .split('/')
+  //   .last();
 
-  console.log('SLUG: ', slug);
+  // console.log('SLUG: ', slug);
 
-  const wpContent = await Axios.get(`${endpoint}wp/v2/pages?slug=${slug}`);
+  // const wpContent = await Axios.get(`${endpoint}wp/v2/pages?slug=${slug}`);
+  const wpContent = await Axios.get(`${endpoint}wp/v2/pages?slug=copyright`);
 
   const pageContent = wpContent.data[0];
   const pageTitle = pageContent.title.rendered;

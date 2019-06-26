@@ -2,27 +2,38 @@
   "name": "with-styled-components",
   "version": "1.0.0",
   "scripts": {
-    "rms3": "aws s3 rb s3://austincc.xyz.serverless --force",
+    "rms3": "aws s3 rb s3://austincc.xyz.tled --force",
     "dev": "STAGE=dev next -p 5555",
     "build": "next build",
     "start": "NODE_ENV=production next start",
-    "deploy": "STAGE=production sls deploy"
+    "devdeploy": "STAGE=dev SLS_DEBUG=* sls --config serverless-dev.yml deploy",
+    "proddeploy": "STAGE=production sls --config serverless-prod.yml deploy"
   },
   "dependencies": {
     "@rebass/grid": "^6.0.0",
+    "@svgr/webpack": "^4.2.0",
     "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "axios": "^0.18.0",
+    "babel-loader": "^8.0.6",
+    "foundation-sites": "^6.5.3",
     "html-react-parser": "^0.7.0",
     "iw-react-dropdown": "^1.0.2",
     "iw-react-elements": "^1.0.8",
     "next": "^8.1.0",
+    "node-sass": "^4.12.0",
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
+    "react-accessible-accordion": "^3.0.0",
     "react-dom": "^16.8.6",
+    "react-masonry-component": "^6.2.1",
     "react-responsive-carousel": "^3.1.49",
     "serverless-domain-manager": "^3.2.1",
     "serverless-nextjs-plugin": "https://github.com/InstructionalWeb/serverless-nextjs-plugin",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0",
+    "unescape": "^1.0.1",
+    "url-loader": "^1.1.2",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",

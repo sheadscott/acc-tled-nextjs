@@ -144,6 +144,9 @@ const DropdownMenu = styled(Dropdown)`
     padding: 0;
   }
 
+  .iw-dropdown__menu {
+    z-index: 9999;
+  }
   .iw-dropdown__menuItem {
     margin: 0 0.5rem;
   }

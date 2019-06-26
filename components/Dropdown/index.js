@@ -18,14 +18,8 @@ class DropdownMenu extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener('click', event => {
-      // console.log("there was a click 1", event.target);
-      // console.log(this.nav.contains(event.target));
-
-      if (!this.nav.contains(event.target)) {
-        this.resetMenu();
-      }
-    });
+    // console.log('NAV: ', this.nav);
+    window.addEventListener('click', this.handleClick);
 
     // reset on escape key
     window.addEventListener('keydown', event => {
@@ -35,6 +29,17 @@ class DropdownMenu extends React.Component {
       }
     });
   }
+
+  handleClick = e => {
+    console.log('THIS: ', this);
+    console.log('TARGET: ', e.target);
+    const navContains = this.nav.contains(e.target);
+    console.log(navContains);
+    if (!navContains) {
+      console.log('RESET CALLED');
+      this.resetMenu();
+    }
+  };
 
   setActiveItem = name => {
     this.setState({
@@ -66,7 +71,9 @@ class DropdownMenu extends React.Component {
                   resetMenu={this.resetMenu}
                 />
               ) : (
-                React.cloneElement(this.props.renderLink(item), { onClick: this.resetMenu })
+                React.cloneElement(this.props.renderLink(item), {
+                  onClick: this.resetMenu,
+                })
               )}
             </li>
           ))}

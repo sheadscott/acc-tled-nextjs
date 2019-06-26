@@ -8,7 +8,7 @@ import { Img } from '../Elements/Elements';
 import MediaContainer from '../MediaContainer/MediaContainer';
 import { Container, Row, Column } from '../Grid/Grid';
 import Parser from '../Parser/Parser';
-// import './carousel.scss';
+import { endpoint } from '../../config';
 
 export default class HomeSlider extends Component {
   state = {
@@ -17,28 +17,25 @@ export default class HomeSlider extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get('https://instruction.austincc.edu/tled/wp-json/acf/v3/pages/226')
-      .then(response => {
-        const slideData = [];
+    axios.get(`${endpoint}acf/v3/pages/226`).then(response => {
+      const slideData = [];
 
-        const slideShowItems =
-          response.data.acf.hero_content[0].carousel_content;
-        slideShowItems.forEach(function(slide) {
-          const info = {};
-          info.alt = slide.image_content.alt;
-          info.title = slide.image_content.title;
-          info.url = slide.image_content.url;
-          info.sizes = slide.image_content.sizes;
-          info.description = slide.image_description;
-          info.page_url = slide.image_description.match(/\/tled\/(.*?)"/)[1];
-          console.log(info.page_url);
-          slideData.push(info);
-        });
-
-        // console.log(slideData);
-        this.setState({ slideData });
+      const slideShowItems = response.data.acf.hero_content[0].carousel_content;
+      slideShowItems.forEach(function(slide) {
+        const info = {};
+        info.alt = slide.image_content.alt;
+        info.title = slide.image_content.title;
+        info.url = slide.image_content.url;
+        info.sizes = slide.image_content.sizes;
+        info.description = slide.image_description;
+        info.page_url = slide.image_description.match(/\/tled\/(.*?)"/)[1];
+        console.log(info.page_url);
+        slideData.push(info);
       });
+
+      // console.log(slideData);
+      this.setState({ slideData });
+    });
   }
 
   changeCarousel = slide => {
@@ -46,6 +43,7 @@ export default class HomeSlider extends Component {
   };
 
   render() {
+    const { slideData, currentSlide } = this.state;
     return (
       <React.Fragment>
         <StyledCarousel
@@ -53,19 +51,14 @@ export default class HomeSlider extends Component {
           showArrows
           showStatus={false}
           showIndicators={false}
-          selectedItem={this.state.currentSlide}
+          selectedItem={currentSlide}
           onChange={slide => {
             this.changeCarousel(slide);
           }}
         >
-          {this.state.slideData.length &&
-            this.state.slideData.map((slide, index) => (
-              <Slide
-                key={index}
-                className="slide"
-                id={slide.title}
-                index={index}
-              >
+          {slideData.length &&
+            slideData.map((slide, index) => (
+              <Slide key={index} className="slide" id={slide.title} index={index}>
                 <MediaContainer
                   ratio="41.4%"
                   maxHeight="700px"
@@ -97,13 +90,11 @@ export default class HomeSlider extends Component {
         </StyledCarousel>
 
         <CarouselControls>
-          {this.state.slideData.map((item, index) => (
+          {slideData.map((item, index) => (
             <li key={`thumbnail-${item.url}`}>
               <Link href={item.page_url}>
                 <CarouselControl
-                  className={
-                    this.state.currentSlide === index ? 'active' : null
-                  }
+                  className={currentSlide === index ? 'active' : null}
                   bg={item.url}
                   title={item.title}
                   index={index}
@@ -136,12 +127,12 @@ const StyledCarousel = styled(Carousel)`
   }
 
   .control-arrow:hover {
-    transform: scale(1.3);
+    transform: scale(1.04);
   }
 
   .control-arrow::before,
   .carousel-slider.control-arrow::before {
-    background: white url('../../static/images/arrow-left.svg') center no-repeat;
+    background: white url(${require('../../images/arrow-left.svg')}) center no-repeat;
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -217,11 +208,7 @@ const StyledCarousel = styled(Carousel)`
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      to right,
-      rgb(19, 57, 82) 0%,
-      rgba(0, 0, 0, 0) 75%
-    );
+    background: linear-gradient(to right, rgb(19, 57, 82) 0%, rgba(0, 0, 0, 0) 75%);
   }
 
   .slide__image {
@@ -331,6 +318,7 @@ const StyledCarousel = styled(Carousel)`
     text-align: left;
   }
 `;
+
 const Slide = styled.div`
   h3 {
     border-bottom: 4px solid white;

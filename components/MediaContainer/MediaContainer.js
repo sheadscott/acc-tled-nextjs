@@ -5,7 +5,7 @@ import Spinner from '../Spinner/Spinner';
 
 class MediaContainer extends React.Component {
   state = {
-    mediaLoaded: false
+    mediaLoaded: true,
   };
 
   componentDidMount() {
@@ -14,7 +14,7 @@ class MediaContainer extends React.Component {
 
   onMediaLoad = () => {
     this.setState({
-      mediaLoaded: true
+      mediaLoaded: true,
     });
   };
 
@@ -31,7 +31,7 @@ class MediaContainer extends React.Component {
 }
 
 MediaContainer.defaultProps = {
-  objectPosition: 'center'
+  objectPosition: 'center',
 };
 
 const Wrapper = styled.div`

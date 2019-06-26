@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Parser from '../Parser/Parser';
 
 export default class TitleBar extends Component {
   render() {
@@ -8,11 +9,13 @@ export default class TitleBar extends Component {
       <Nav>
         <SiteIdentity>
           <a title="ACC Home Link" href="http://www.austincc.edu">
-            <img src={require('../../images/ACC.svg')} alt="Home" />
+            <Parser>{require('../../images/ACC.svg?include')}</Parser>
           </a>
 
           <SiteTitle>
-            <Link href="/"><TLED>TLED</TLED></Link>
+            <Link href="/">
+              <TLED>TLED</TLED>
+            </Link>
           </SiteTitle>
         </SiteIdentity>
 
@@ -39,24 +42,25 @@ export default class TitleBar extends Component {
         <TitleBarControls>
           <Link href="/calendar">
             <a title="Link to Calendar Page" style={{ marginRight: '15px' }}>
-              <img src={require('../../images/calendarIcon.svg')} alt="Calendar" />
+              <Parser>{require('../../images/calendarIcon.svg?include')}</Parser>
             </a>
           </Link>
 
           <Link href="/#searchForm">
             <a
-              role="button"
               style={{ marginRight: '15px' }}
               onClick={e => this.props.toggleSearch(e)}
               aria-controls="searchForm"
               aria-expanded={this.props.searchExpanded}
             >
-              <img src={require('../../images/searchIcon.svg')} alt="Search" />
+              <button role="button">
+                <Parser>{require('../../images/searchIcon.svg?include')}</Parser>
+              </button>
             </a>
           </Link>
 
           <Button onClick={this.props.toggleDrawer}>
-            <img src={require('../../images/hamburgerMenu.svg')} alt="Menu" />
+            <Parser>{require('../../images/hamburgerMenu.svg?include')}</Parser>
           </Button>
         </TitleBarControls>
       </Nav>

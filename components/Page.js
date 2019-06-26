@@ -31,4 +31,14 @@ const StyledMain = styled.main`
   img {
     max-width: 100%;
   }
+
+  a:not(.button) {
+    font-weight: 700;
+    color: rgb(26, 82, 118);
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 `;

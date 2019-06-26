@@ -4,12 +4,13 @@ import uuidv1 from 'uuid/v1';
 import {
   Accordion,
   AccordionItem,
-  AccordionItemTitle,
-  AccordionItemBody,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
 } from 'react-accessible-accordion';
 
 // Import arrow
-import { ReactComponent as DownArrowIcon } from "../../img/arrowDown.svg";
+import { ReactComponent as DownArrowIcon } from '../../images/arrowDown.svg';
 
 import { Container, Row, Column as Col } from '../Grid/Grid';
 import { Section, Heading } from '../Elements/Elements';
@@ -20,19 +21,23 @@ export default class AccordionComponent extends Component {
     super(props);
     this.myRef = React.createRef();
     this.state = {
-      id: null
-    }
+      id: null,
+    };
   }
+
   componentWillMount() {
     this.setState({ id: uuidv1() });
   }
+
   componentDidMount() {
     // const $dropdown = new Accordion('.accordion');
     // $(this.myRef.current).foundation();
   }
+
   shouldComponentUpdate() {
     return false;
   }
+
   render() {
     return (
       <Section>
@@ -40,7 +45,12 @@ export default class AccordionComponent extends Component {
           <Row>
             {this.props.layout.heading && (
               <Col width={1}>
-                <Heading as="h2" caps={false} underline={false} color={this.props.layout.text_mode}>
+                <Heading
+                  as="h2"
+                  caps={false}
+                  underline={false}
+                  color={this.props.layout.text_mode}
+                >
                   <Parser>{this.props.layout.heading}</Parser>
                 </Heading>
               </Col>
@@ -50,15 +60,19 @@ export default class AccordionComponent extends Component {
               <Accordion accordion={false}>
                 {this.props.layout.accordion.map((item, index) => (
                   <AccordionItem key={index}>
-                    <StyledAccordionItemTitle>
-                      <Parser>{item.title}</Parser>
-                      <ArrowIcon role="presentation" />
-                    </StyledAccordionItemTitle>
-                    <StyledAccordionItemBody>
+                    <StyledAccordionItemHeading>
+                      <AccordionItemButton>
+                        <Parser>{item.title}</Parser>
+                        <ArrowIcon role="presentation">
+                          <Parser>{require('../../images/arrowDown.svg?include')}</Parser>
+                        </ArrowIcon>
+                      </AccordionItemButton>
+                    </StyledAccordionItemHeading>
+                    <StyledAccordionItemPanel>
                       <div key={index}>
                         <Parser>{item.description}</Parser>
                       </div>
-                    </StyledAccordionItemBody>
+                    </StyledAccordionItemPanel>
                   </AccordionItem>
                 ))}
               </Accordion>
@@ -66,12 +80,12 @@ export default class AccordionComponent extends Component {
           </Row>
         </Container>
       </Section>
-    )
+    );
   }
 }
 
-const StyledAccordionItemTitle = styled(AccordionItemTitle)`
-  color: ${ props => props.theme.colors.blue};
+const StyledAccordionItemHeading = styled(AccordionItemHeading)`
+  color: ${props => props.theme.colors.blue};
   font-size: 1rem;
   border: none;
   border-bottom: 1px solid #e6e6e6;
@@ -93,13 +107,12 @@ const StyledAccordionItemTitle = styled(AccordionItemTitle)`
     margin-top: -0.55rem;
   }
 
-  &[aria-expanded="true"] > svg {
+  &[aria-expanded='true'] > svg {
     transform: scaleY(-1);
   }
-
 `;
 
-const StyledAccordionItemBody = styled(AccordionItemBody)`
+const StyledAccordionItemPanel = styled(AccordionItemPanel)`
   padding: 1rem;
 
   &.accordion__body {
@@ -109,20 +122,34 @@ const StyledAccordionItemBody = styled(AccordionItemBody)`
   }
 
   &.accordion__body--hidden {
-      display: none;
-      opacity: 0;
-      animation: fadein 0.35s ease-in;
+    display: none;
+    opacity: 0;
+    animation: fadein 0.35s ease-in;
   }
 `;
 
-const ArrowIcon = styled(DownArrowIcon)`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 2rem;
-  transition: transform 0.3s ease-out;
-  
-  path:first-child {
-    fill: ${ props => props.theme.colors.blue};
+// const ArrowIcon = styled(DownArrowIcon)`
+//   position: absolute;
+//   top: 1rem;
+//   right: 1rem;
+//   width: 2rem;
+//   transition: transform 0.3s ease-out;
+
+//   path:first-child {
+//     fill: ${props => props.theme.colors.blue};
+//   }
+// `;
+
+const ArrowIcon = styled.span`
+  svg {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    transition: transform 0.3s ease-out;
+
+    path:first-child {
+      fill: ${props => props.theme.colors.primaryBlue};
+    }
   }
 `;

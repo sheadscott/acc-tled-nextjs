@@ -2,7 +2,7 @@ import React from 'react';
 import OneColumn from './OneColumn';
 import TwoColumn from './TwoColumn';
 import ThreeColumn from './ThreeColumn';
-// import Accordion from './Accordion';
+import Accordion from './Accordion';
 // import FlickityCarousel from '../Flickity/Flickity';
 // import { Container } from '../Grid/Grid';
 

@@ -8,10 +8,7 @@ const Footer = props => {
   const renderChildren = child => {
     // Internal links using Next Link
     if (child.type === 'post_type') {
-      const localURL = child.url.replace(
-        'https://instruction.austincc.edu/tled',
-        ''
-      );
+      const localURL = child.url.replace('https://instruction.austincc.edu/tled', '');
       return (
         <li key={child.id}>
           <Link href={localURL}>
@@ -56,20 +53,17 @@ const Footer = props => {
           </WpLinks>
 
           <Contact width={[1, 1, 1 / 4]} pl={[0, 0, '2rem']}>
-            <img src={require('../../images/tledLogo.svg')} alt="TLED Logo" />
+            <Parser>{require('../../images/tledLogo.svg?include')}</Parser>
 
             <div className="vcard" style={{ marginLeft: '10px' }}>
               <div className="email">
-                <a href="mailto:tledwebsite@austincc.edu">
-                  tledwebsite@austincc.edu
-                </a>
+                <a href="mailto:tledwebsite@austincc.edu">tledwebsite@austincc.edu</a>
               </div>
               <div className="org">Austin Community College District</div>
               <div className="adr">
                 <div className="street-address">5930 Middle Fiskville Rd.</div>
                 <div>
-                  <span className="locality">Austin</span>,
-                  <span className="region"> Texas</span>
+                  <span className="locality">Austin</span>,<span className="region"> Texas</span>
                   <span className="postal-code"> 78752</span>
                 </div>
               </div>

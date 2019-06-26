@@ -4,12 +4,14 @@ import App, { Container } from 'next/app';
 import Axios from 'axios';
 import Page from '../components/Page';
 import Header from '../components/Header';
+import Drawer from '../components/Drawer/Drawer';
+import Search from '../components/Search/Search';
 import TitleBar from '../components/TitleBar/TitleBar';
 import SecondaryNav from '../components/SecondaryNav/SecondaryNav';
 import Footer from '../components/Footer/Footer';
 import { endpoint } from '../config';
 import theme from '../theme';
-import HomeSlider from '../components/HomeSlider/HomeSlider';
+import '../styles/foundation.scss';
 
 class MyApp extends App {
   state = {
@@ -48,7 +50,9 @@ class MyApp extends App {
       .then(response => response.data.items);
 
     // this exposes the query to the user
-    pageProps.query = ctx.query;
+    // if (ctx.query) {
+    //   pageProps.query = ctx.query;
+    // }
     return { pageProps, navData, topNavData, footerData };
   }
 
@@ -67,6 +71,7 @@ class MyApp extends App {
   };
 
   toggleDrawer = () => {
+    // debugger;
     this.setState(prevState => ({ drawerExpanded: !prevState.drawerExpanded }));
   };
 
@@ -86,26 +91,33 @@ class MyApp extends App {
 
   // close all menu items
   cancelSubMenuState = () => {
-    const expandedState = this.state.subMenuState.map(
-      (item, index, arr) => false
-    );
+    const expandedState = this.state.subMenuState.map((item, index, arr) => false);
     this.setState({ subMenuState: expandedState });
   };
 
   render() {
-    const {
-      Component,
-      pageProps,
-      navData,
-      topNavData,
-      footerData,
-    } = this.props;
+    const { Component, pageProps, navData, topNavData, footerData } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
         <Container>
           <Header navData={navData}>
-            <TitleBar titleBarItems={topNavData} />
+            <Drawer
+              drawerState={this.state.drawerExpanded}
+              toggleDrawer={this.toggleDrawer}
+              titleBarItems={this.props.topNavData}
+              secondaryNavItems={this.props.navData}
+            />
+            <Search
+              searchExpanded={this.state.searchExpanded}
+              searchSubmitted={this.searchSubmitted}
+            />
+            <TitleBar
+              titleBarItems={topNavData}
+              searchExpanded={this.state.searchExpanded}
+              toggleSearch={this.toggleSearch}
+              toggleDrawer={this.toggleDrawer}
+            />
             <SecondaryNav
               secondaryNavItems={navData}
               subMenuState={this.state.subMenuState}

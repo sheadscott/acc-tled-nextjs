@@ -75,6 +75,7 @@ const StyledDropdown = styled(Dropdown)`
   }
 
   .iw-dropdown__menu {
+    z-index: 9999;
   }
 
   .iw-dropdown__menuItem {

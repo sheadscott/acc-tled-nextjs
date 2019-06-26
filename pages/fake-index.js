@@ -16,6 +16,11 @@ const Index = ({ pageContent, pageSections, events }) => {
   if (!pageContent) return <Error status={404} />;
   return (
     <React.Fragment>
+      <div>
+        <Link href="/wp-page-test">
+          <a>Wordpress Test Page</a>
+        </Link>
+      </div>
       <HomeSlider />
       <Container>
         {ACFData && ACFData.sidebar_left && (
@@ -226,26 +231,6 @@ Index.getInitialProps = async ({ res, asPath }) => {
     // console.log("Events: ", filteredEvents);
     pageObject.events = filteredEvents;
   });
-
-  // Fetch Slideshow content
-  // await Axios.get(`${endpoint}acf/v3/pages/226`).then(response => {
-  //   const slideData = [];
-
-  //   const slideShowItems = response.data.acf.hero_content[0].carousel_content;
-  //   slideShowItems.forEach(function(slide) {
-  //     const info = {};
-  //     info.alt = slide.image_content.alt;
-  //     info.title = slide.image_content.title;
-  //     info.url = slide.image_content.url;
-  //     info.sizes = slide.image_content.sizes;
-  //     info.description = slide.image_description;
-  //     info.page_url = slide.image_description.match(/\/tled\/(.*?)"/)[1];
-  //     console.log(info.page_url);
-  //     slideData.push(info);
-
-  //     pageObject.slideData = slideData;
-  //   });
-  // });
 
   return { ...pageObject };
 };
