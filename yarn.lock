@@ -1491,6 +1491,13 @@ accept@2.x.x:
     boom "5.x.x"
     hoek "4.x.x"
 
+accessible-react-table@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/accessible-react-table/-/accessible-react-table-0.6.2.tgz#d9d6af2edab29b29e5420a75c77f8c1cce26ec1a"
+  integrity sha512-GTR1kqdoTabJsSQxaSdXBPWaQ1BHbl0eYJ54rmLnch8gBSreoaQ+j5UKMCzBv7XPE/lR2KX94aT7UFqP2586+Q==
+  dependencies:
+    merge-prop-functions "^1.0.0"
+
 acorn-dynamic-import@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz#482210140582a36b83c3e342e1cfebcaa9240948"
@@ -5057,6 +5064,11 @@ merge-deep@^3.0.2:
     clone-deep "^0.2.4"
     kind-of "^3.0.2"
 
+merge-prop-functions@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/merge-prop-functions/-/merge-prop-functions-1.1.0.tgz#029c83d9722543f9af217ef978a46af984c04913"
+  integrity sha512-77jnkZE6CorvGhqdULXF8S3lklmwU2d4sbJctbRwVFY8Yb/Cxqh8Fg9occWtesmqr84frucTySTj9t5K/WR1ww==
+
 merge2@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.2.3.tgz#7ee99dbd69bb6481689253f018488a1b902b0ed5"
@@ -6311,6 +6323,13 @@ react-ssr-prepass@1.0.2:
   resolved "https://registry.yarnpkg.com/react-ssr-prepass/-/react-ssr-prepass-1.0.2.tgz#f411414cbc043a90254cddcef0793b2aaf14b086"
   dependencies:
     object-is "^1.0.1"
+
+react-table@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-6.10.0.tgz#20444b19d8ca3c1a08e7544e5c3a93e4ba56690e"
+  integrity sha512-s/mQLI1+mNvlae45MfAZyZ04YIT3jUzWJqx34s0tfwpDdgJkpeK6vyzwMUkKFCpGODBxpjBOekYZzcEmk+2FiQ==
+  dependencies:
+    classnames "^2.2.5"
 
 react@15:
   version "15.6.2"

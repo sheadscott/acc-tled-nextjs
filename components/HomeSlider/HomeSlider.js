@@ -407,7 +407,6 @@ const CarouselControl = styled.button`
   color: white;
   font-weight: 700;
   font-size: 0.9rem;
-  font-family: Montserrat;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
   outline: none;
   margin-bottom: 0.75rem;

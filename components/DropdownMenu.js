@@ -95,7 +95,6 @@ const StyledDropdown = styled(Dropdown)`
     text-transform: uppercase;
     box-sizing: border-box;
     height: 100%;
-    font-family: Montserrat;
     line-height: 1em;
     text-align: center;
     @media (min-width: 800px) {

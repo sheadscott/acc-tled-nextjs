@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
-
   html, body, #screen {
     min-height: 100%;
   }
@@ -17,13 +15,13 @@ const GlobalStyle = createGlobalStyle`
 
   *, *::before, *::after {
       box-sizing: inherit;
+      font-family: ${props => props.theme.bodyFont};
   }
 
   body {
     background: white;
     padding: 0;
     margin: 0;
-    font-family: ${props => props.theme.bodyFont};
     font-size: 1rem;
     color: ${props => props.theme.black};
     -webkit-font-smoothing: antialiased;

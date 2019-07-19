@@ -30,7 +30,10 @@ export default class SecondaryNav extends Component {
             data={this.props.secondaryNavItems}
             renderLink={data => (
               <Link href={data.url.replace(`${siteUrl}/`, '/')}>
-                <a data={data.type === 'post_type' ? data : null} className="iw-dropdown__menuLink">
+                <a
+                  data={data.type === 'post_type' ? data : null}
+                  className="iw-dropdown__menuLink"
+                >
                   <Parser>{data.title}</Parser>
                 </a>
               </Link>
@@ -163,7 +166,6 @@ const DropdownMenu = styled(Dropdown)`
     text-transform: uppercase;
     box-sizing: border-box;
     height: 100%;
-    font-family: Montserrat;
     line-height: 1em;
     text-align: center;
     @media (min-width: 800px) {

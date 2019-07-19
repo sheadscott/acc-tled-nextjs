@@ -4,16 +4,9 @@ const withCSS = require('@zeit/next-css'); // Need for flickity
 const withSass = require('@zeit/next-sass');
 
 const stage = process.env.STAGE;
-let assetPrefix = '';
 
-if (stage === 'production') {
-  assetPrefix = '';
-} else if (stage === 'dev') {
-  assetPrefix = 'https://d1n95ybjvje48l.cloudfront.net';
-} else {
-  assetPrefix = '';
-}
-const target = stage !== 'production' ? 'server' : 'serverless';
+const assetPrefix = stage === 'dev' ? 'https://d1n95ybjvje48l.cloudfront.net' : '';
+const target = stage === 'dev' ? 'serverless' : 'server';
 
 const nextConfig = {
   assetPrefix,

@@ -30,7 +30,13 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cloud.typography.com/6922694/7911612/css/fonts.css"
+          />
+        </Head>
         <body className="custom_class">
           <Main />
           <NextScript />

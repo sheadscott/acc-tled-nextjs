@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "scripts": {
     "rms3": "aws s3 rb s3://austincc.xyz.tled --force",
-    "dev": "STAGE=dev next -p 5555",
+    "dev": "next -p 9999",
     "build": "next build",
-    "start": "NODE_ENV=production next start",
-    "devdeploy": "STAGE=dev SLS_DEBUG=* sls --config serverless-dev.yml deploy",
-    "proddeploy": "STAGE=production sls --config serverless-prod.yml deploy"
+    "serve": "next serve",
+    "start": "next start",
+    "devdeploy": "STAGE=dev SLS_DEBUG=* sls deploy"
   },
   "dependencies": {
     "@rebass/grid": "^6.0.0",
     "@svgr/webpack": "^4.2.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
+    "accessible-react-table": "^0.6.2",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.6",
     "foundation-sites": "^6.5.3",
@@ -28,6 +29,7 @@
     "react-dom": "^16.8.6",
     "react-masonry-component": "^6.2.1",
     "react-responsive-carousel": "^3.1.49",
+    "react-table": "^6.10.0",
     "serverless-domain-manager": "^3.2.1",
     "serverless-nextjs-plugin": "https://github.com/InstructionalWeb/serverless-nextjs-plugin",
     "styled-components": "^4.0.0",

@@ -53,7 +53,7 @@ class MyApp extends App {
     // if (ctx.query) {
     //   pageProps.query = ctx.query;
     // }
-    return { pageProps, navData, topNavData, footerData };
+    return { pageProps: { ...pageProps }, navData, topNavData, footerData };
   }
 
   toggleSearch = event => {
