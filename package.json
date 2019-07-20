@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "rms3": "aws s3 rb s3://austincc.xyz.tled --force",
-    "dev": "next -p 9999",
+    "dev": "yarn audit && next -p 9999",
     "build": "next build",
     "serve": "next serve",
     "start": "next start",
