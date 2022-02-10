@@ -22,7 +22,7 @@
     "iw-react-dropdown": "^1.0.2",
     "iw-react-elements": "^1.0.8",
     "next": "^8.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
     "react-accessible-accordion": "^3.0.0",
