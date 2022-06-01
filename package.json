@@ -46,7 +46,7 @@
     "next-optimized-images": "^2.4.1",
     "responsive-loader": "^1.2.0",
     "serverless-offline": "^4.9.4",
-    "sharp": "^0.22.1"
+    "sharp": "^0.30.5"
   },
   "license": "ISC"
 }
